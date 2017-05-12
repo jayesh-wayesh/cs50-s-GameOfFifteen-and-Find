@@ -22,6 +22,26 @@ bool search(int value, int values[], int n)
  */
 void sort(int values[], int n)
 {
-    // TODO: implement a sorting algorithm
+    static int box[65536];
+    int j, i;
+    for (i = 0; i < n; i++)
+    {
+        j = values[i];
+        box[j]++;
+    }
+    i = 0;
+    
+    for (j = 0; j < 65536; j++)
+    {
+        if (box[j] == 0)
+        {
+            continue;
+        }
+        else
+        {
+            values[i] = j;
+            i++;
+        }
+    }
     return;
 }
