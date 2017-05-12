@@ -1,0 +1,8 @@
+0. Framework allows all the dimensions from (3 * 3) to (9 * 9)
+
+1. game’s board is represented by a Multidimensional array.
+
+2. greet() function containing functions usleep() and printf(), is called to greet the player at start.
+
+3. init(), draw(), move(), won().
+
