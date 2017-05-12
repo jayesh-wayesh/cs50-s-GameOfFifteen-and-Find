@@ -95,8 +95,12 @@ void sort(int values[], int n)
         }
         else
         {
-            values[i] = j;
-            i++;
+            while(box[j] > 0)
+            {
+                values[i] = j;
+                i++;
+                box[j]--;
+            }
         }
     }
     return;
