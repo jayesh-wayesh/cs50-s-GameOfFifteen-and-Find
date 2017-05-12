@@ -27,7 +27,7 @@
 int board[DIM_MAX][DIM_MAX];
 
 // dimensions
-int d;
+int d, x_prime, y_prime;
 
 // prototypes
 void clear(void);
@@ -156,7 +156,19 @@ void greet(void)
  */
 void init(void)
 {
-    // TODO
+    for (int x = 0; x < d; x++)
+    {
+        for (int y = 0; y < d; y++)
+        {
+            board[x][y] = (d * d - 1) - (d * x) - y;
+        }
+    }
+    if (d % 2 == 0)
+    {
+        int swap = board[d - 1][d - 3];
+        board[d - 1][d - 3] = board[d - 1][d - 2];
+        board[d - 1][d - 2] = swap;
+    }
 }
 
 /**
