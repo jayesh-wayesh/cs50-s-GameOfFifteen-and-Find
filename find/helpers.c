@@ -26,13 +26,20 @@ bool search(int value, int values[], int n)
         }
         else
         {
-            if (value < values[n / 2 - 1])
+            if (n == 2)
             {
-                return (search(value, values, n / 2 - 1));
+                return false;
             }
-            else if (value > values[n / 2])
+            else
             {
-                return (search(value, &values[n / 2 + 1], n / 2 - 1));
+                if (value < values[n / 2 - 1])
+                {
+                    return (search(value, values, n / 2 - 1));
+                }
+                else if (value > values[n / 2])
+                {
+                    return (search(value, &values[n / 2 + 1], n / 2 - 1));
+                }
             }
         }
         
@@ -45,15 +52,21 @@ bool search(int value, int values[], int n)
         }
         else
         {
-    
-            if (value < values[n / 2])
+            if (n == 1)
             {
-                return (search(value, values, n / 2));  
+                return false;
             }
             else
             {
-                return (search(value, &values[n / 2 - 1], n / 2));
-            }    
+                if (value < values[n / 2])
+                {
+                    return (search(value, values, n / 2));  
+                }
+                else
+                {
+                    return (search(value, &values[n / 2 + 1], n / 2));
+                }
+            }
         }
     }
     
