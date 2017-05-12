@@ -176,7 +176,33 @@ void init(void)
  */
 void draw(void)
 {
-    // TODO
+    printf("\n");
+    for(int x = 0; x < d; x++)
+    { 
+        for(int y = 0; y < d; y++)
+        {
+            if (board[x][y] == 0)
+            {   
+                x_prime = x;
+                y_prime = y;
+                printf("  _");
+            }
+             
+            else
+            {
+                if (board[x][y] > 9)
+                {
+                    printf(" %i", board[x][y]);
+                }
+                else
+                {
+                    printf("  %i", board[x][y]);
+                }
+            }
+        }
+        printf("\n");
+    }
+    printf("\n");
 }
 
 /**
