@@ -13,7 +13,50 @@
  */
 bool search(int value, int values[], int n)
 {
-    // TODO: implement a searching algorithm
+    if (value < 0)
+    {
+        return false;
+    }
+    
+    if (n % 2 == 0)
+    {
+        if (value == values[n / 2] || value == values[n / 2 - 1])
+        {
+            return true;
+        }
+        else
+        {
+            if (value < values[n / 2 - 1])
+            {
+                return (search(value, values, n / 2 - 1));
+            }
+            else if (value > values[n / 2])
+            {
+                return (search(value, &values[n / 2 + 1], n / 2 - 1));
+            }
+        }
+        
+    }
+    else
+    {
+        if (value == values[n / 2])
+        {
+            return true;
+        }
+        else
+        {
+    
+            if (value < values[n / 2])
+            {
+                return (search(value, values, n / 2));  
+            }
+            else
+            {
+                return (search(value, &values[n / 2 - 1], n / 2));
+            }    
+        }
+    }
+    
     return false;
 }
 
