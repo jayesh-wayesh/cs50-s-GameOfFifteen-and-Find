@@ -211,7 +211,30 @@ void draw(void)
  */
 bool move(int tile)
 {
-    // TODO
+    for (int x = 0; x < d; x++)
+    {
+        for (int y = 0; y < d; y++)
+        {
+            if ( board[x][y] == tile )
+            {
+                if ((x == x_prime && y - y_prime == 1) || 
+                   (x == x_prime && y - y_prime == -1) || 
+                    (y == y_prime && x - x_prime == 1) || 
+                    (y == y_prime && x - x_prime == -1))
+                {
+                    int swap = board[x][y];
+                    board[x][y] = board[x_prime][y_prime];
+                    board[x_prime][y_prime] = swap;
+                    return true;
+                    
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+    }
     return false;
 }
 
