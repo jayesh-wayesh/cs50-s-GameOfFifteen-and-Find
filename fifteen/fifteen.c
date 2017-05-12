@@ -244,6 +244,33 @@ bool move(int tile)
  */
 bool won(void)
 {
-    // TODO
-    return false;
+    int min = board[0][0], count = 0;
+    for (int x = 0; x < d; x++)
+    {
+        for (int y = 0; y < d; y++)
+        {
+            if (x == 0 && y == 0)
+            {
+                y = 1;
+            }
+            if (board[x][y] > min)
+            {
+                min = board[x][y];
+                count++;
+            }
+            else
+            {
+                if (count == ((d * d) - 2))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            
+        }
+    }
+    return true;
 }
